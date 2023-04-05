@@ -1,0 +1,21 @@
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  medical_history TEXT,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE treatments (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  doctor_name VARCHAR(255) NOT NULL,
+  diagnosis TEXT,
+  treatment TEXT,
+  date DATE NOT NULL,
+  cost DECIMAL(10, 2),
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
